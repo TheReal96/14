@@ -44,7 +44,7 @@ GameManager.prototype.setup = function () {
   var previousState = this.storageManager.getGameState();
 
   // Reload the game from a previous game if present
-  if (previousState && (this.size === previousState.size)) {
+  if (previousState) {
     this.grid        = new Grid(previousState.grid.size,
                                 previousState.grid.cells); // Reload grid
     this.score       = previousState.score;
@@ -181,8 +181,8 @@ GameManager.prototype.move = function (direction) {
           // Update the score
           self.score += merged.value;
 
-          // The mighty 2048 tile
-          if (merged.value === 12) self.won = true;
+          // The mighty 14 tile
+          if (merged.value === 14) self.won = true;
         } else {
           self.moveTile(tile, positions.farthest);
         }
